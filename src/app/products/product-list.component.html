@@ -1,6 +1,6 @@
 <div class='card'>
     <div class='card-header'>
-        Product List
+        {{pageTitle}}
     </div>
     <div class='card-body'>
         <div class='row'>
@@ -15,7 +15,9 @@
             </div>
         </div>
         <div class='table-responsive'>
-            <table class='table'>
+            <table class='table'
+                   *ngIf='products && products.length'>
+                <!-- *ngIf angular If statement, populates table only if there are products available -->
                 <thead>
                     <tr>
                         <th>
@@ -31,7 +33,15 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    <tr *ngFor='let product of products'>
+                        <!--*ngFor sets For loop and declasres props to be used from property declared in component-->
+                        <td></td>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.productCode}}</td>
+                        <td>{{product.releaseDate}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.starRating}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
